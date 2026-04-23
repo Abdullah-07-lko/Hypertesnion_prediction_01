@@ -113,18 +113,13 @@ input_data = input_data[
 
 # -------------------------------
 # PREDICTION
-if st.button("Predict"):
-    prob = model.predict_proba(input_data)[0][1]
+if prediction == 1:
+    st.error("⚠️ High Risk of Hypertension")
+else:
+    st.success("✅ Low Risk of Hypertension")
 
-    threshold = 0.3  # ← indent these inside the if block
-    prediction = 1 if prob >= threshold else 0
-
-    st.subheader("Result")
-
-    if prediction == 1:
-        st.error(f"⚠️ High Risk of Hypertension\n\nProbability: {prob:.2f}")
-    else:
-        st.success(f"✅ Low Risk\n\nProbability: {prob:.2f}")
+st.progress(prob)
+st.write(f"Risk Score: {prob*100:.2f}%")
 
 # -------------------------------
 
@@ -133,4 +128,6 @@ if st.button("Predict"):
 # -------------------------------
 
 st.markdown("---")
+
 st.caption("Model optimized for high recall (to minimize missed patients)")
+st.warning("This prediction is for educational purposes only and not a medical diagnosis.")
