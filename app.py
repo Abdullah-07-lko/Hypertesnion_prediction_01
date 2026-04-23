@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# -------------------------------
 
 # Load model & scaler
 
@@ -22,7 +21,7 @@ st.set_page_config(page_title="Hypertension Predictor", layout="centered")
 st.title("🩺 Hypertension Prediction App")
 st.write("Fill patient details to assess hypertension risk")
 
-# -------------------------------
+
 
 # USER INPUTS
 
@@ -64,7 +63,7 @@ med_unknown = 1 if medication == "Unknown" else 0
 
 # -------------------------------
 
-# CREATE INPUT DATAFRAME
+# CREATING INPUT DATAFRAME
 
 # -------------------------------
 
